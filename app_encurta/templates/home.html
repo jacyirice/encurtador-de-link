@@ -1,0 +1,20 @@
+
+{% extends "_base.html" %} 
+{% block title %} {{group.name }}{% endblock %}
+{% block head %} 
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+    
+{% endblock %}
+{% block content %}
+    <h1 class="pb-5">{{group.name}}</h1>
+
+    {% for l in group.link_set.all %}
+        <div class="row justify-content-md-center pb-3">
+            <a type="button" href="{{l.link}}" class="btn btn-outline-dark  btn-block col col-lg-6">{{l.name}}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

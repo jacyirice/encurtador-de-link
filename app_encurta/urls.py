@@ -1,7 +1,8 @@
 from django.urls import path, include
 
-from.views import encurta_link
+from .views import encurta_link, home
 
 urlpatterns = [
-    path('<str:link_short>', encurta_link)
+    path('groups/<str:group>/', home),
+    path('<str:link_short>/', encurta_link)
 ]
