@@ -2,7 +2,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, get_object_or_404, render
 from .models import GroupLink, Link
 from django.http.response import JsonResponse
-
 # Create your views here.
 def encurta_link(request, link_short):
     link =  get_object_or_404(Link, link_short=link_short)
@@ -14,4 +13,4 @@ def home(request, group):
 
 def periodos(request, periodo):
     from .periodos import list_periodos
-    return JsonResponse(list_periodos[periodo])
+    return JsonResponse(list_periodos[periodo], safe=False)
